@@ -120,6 +120,59 @@ class IP{
         return network.includes(this);
     }
 
+    /**
+    * Returns String. Gives ping result of the ip 
+    */
+    ping = (n=1) => {
+        return new Promise((resolve, reject)=>{
+            const exec = require('child_process').exec;
+            if (process.platform === "win32"){
+                exec(`ping -n ${n} ${this.ip}`, function (err, stdout, stderr) {
+                    resolve(stdout);
+                });
+            }
+            else{
+                exec(`ping -c ${n} ${this.ip}`, function (err, stdout, stderr) {
+                    resolve(stdout);
+                });
+            }
+            
+        })
+    }
+
+    /**
+    * Returns Boolean. Gives ip is pingable
+    */
+    pingable = (n=1) => {
+        return new Promise((resolve, reject)=>{
+            const res = this.ping().then((result)=>{
+                if (result.includes("TTL")){
+                    resolve(true);
+                }
+                resolve(false);
+            });
+        })
+    }
+
+    portOpen = (port=required("port")) => {
+        var net = require('net');
+        const client = new net.Socket();
+        client.setTimeout(500);
+        return new Promise((resolve, reject)=>{
+            client.connect(port, this.ip, function() {
+                client.destroy();
+                resolve(true);
+            });
+            client.on('timeout', function(socket) {
+                client.destroy();
+                resolve(false);
+            });
+            client.on('error', function(error) {
+                client.destroy();
+                resolve(false);
+            });
+        });
+    }
 }
 
 class Network{

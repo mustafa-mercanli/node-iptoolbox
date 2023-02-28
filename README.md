@@ -22,4 +22,7 @@ ip.preIp(); // Returns IP. Gives previous network ip. For ex; 192.168.1.2 -> 192
 ip.distance(new IP("192.168.1.10")) // Returns Number. Gives how many ip between two address.
 ip.type // Returns JSON Object. Gives type of the address. For ex; private, public
 IP.validateIp("192.168.1.67") // Returns Boolean. Validates the ip format is right.
+await ip.ping(); // Returns String. Gives ping result of the ip.
+await ip.pingable(); // Returns Boolean. Gives ip is pingable.
+await ip.portOpen(80) // Returns Boolean. Gives port is reachable on this ip.
 ```
