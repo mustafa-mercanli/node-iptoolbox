@@ -1,12 +1,26 @@
 {
-  "name": "ip-tools",
+  "name": "iptoolbox",
   "version": "1.0.0",
-  "description": "",
+  "description": "Some useful Ip and network commands",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "ip",
+    "network",
+    "subnet",
+    "mask",
+    "cidr",
+    "port",
+    "ping",
+    "telnet"
+  ],
+  "author": "mustafa-mercanli",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mustafa-mercanli/node-iptoolbox.git"
+  }
 }
