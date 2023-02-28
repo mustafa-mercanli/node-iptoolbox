@@ -2,6 +2,8 @@
 Some useful Ip and network commands.
 
 ```javascript
+const {IP, Network} = require('iptoolbox');
+
 const nw = new Network("192.168.10.10","255.255.255.0");
 const nwCidr = Network.fromCidr("192.168.1.10/24"); // Returns Network. Network instance by initializing from CIDR format.
 nw.includes(new IP("192.168.10.50")); // Returns Bool. Does the network contain this ip?
