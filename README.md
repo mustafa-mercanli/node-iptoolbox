@@ -1,4 +1,4 @@
-# node-iptools
+# iptoolbox
 Some useful Ip and network commands.
 
 ```javascript
