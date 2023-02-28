@@ -18,8 +18,8 @@ console.log(ip.and(new IP("255.255.255.0"))) // Returns IP. Makes logical and op
 console.log(ip.nextIp()); // Returns IP. Gives next network ip. For ex; 192.168.1.2 -> 192.168.1.3
 console.log(ip.preIp()); // Returns IP. Gives previous network ip. For ex; 192.168.1.2 -> 192.168.1.1
 console.log(ip.distance(new IP("192.168.1.10"))) // Returns Number. Gives how many ip between two address.
+console.log(ip.type) // Returns JSON Object. Gives type of the address. For ex; private, public
 console.log(IP.validateIp("192.168.1.67")) // Returns Boolean. Validates the ip format is right.
-
 
 
 

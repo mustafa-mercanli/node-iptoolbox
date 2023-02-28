@@ -7,6 +7,7 @@ const required = (arg) => {
 
 class IP{
     ip;
+    type;
 
     /**
     * @param {string} ip xxx.xxx.xxx.xxx
@@ -17,6 +18,20 @@ class IP{
         if (!IP.validateIp(this.ip)){
             throw new WrongIpFormat("IP not in [xxx.xxx.xxx.xxx] format")
         }
+
+        if (this.ip >="10.0.0.0" && this.ip <="10.255.255.255"){
+            this.type = {type:"private", class:"A"}
+        }
+        else if (this.ip >="172.16.0.0" && this.ip <="172.31.255.255"){
+            this.type = {type:"private", class:"B"}
+        }
+        else if (this.ip >=" 192.168.0.0" && this.ip <="192.168.255.255"){
+            this.type = {type:"private", class:"C"}
+        }
+        else {
+            this.type = "public"
+        }
+
     }
 
     /**
