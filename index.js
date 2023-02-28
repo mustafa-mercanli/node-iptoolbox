@@ -187,17 +187,17 @@ class Network{
     }
 
     /**
-    * @param {int} value Default 1. Returns IP. Gives next network ip. For ex; 192.168.10.1 -> 192.168.11.1
+    * @param {int} value Default 1. Returns Network. Gives next network. For ex; 192.168.10.1 -> 192.168.11.1
     */
-    nextNetworkIp = (value=1) => {
-        return this.networkIp.nextIp((this.ipCount+1)*value);
+    nextNetwork = (value=1) => {
+        return new Network(this.networkIp.nextIp((this.ipCount+1)*value), this.subnetMask);
     }
 
     /**
-    * @param {int} value Default 1. Returns IP. Gives previous network ip. For ex; 192.168.10.1 -> 192.168.9.1
+    * @param {int} value Default 1. Returns Network. Gives previous network. For ex; 192.168.10.1 -> 192.168.9.1
     */
-    preNetworkIp = (value=1) => {
-        return this.networkIp.preIp((this.ipCount+1)*value);
+    preNetwork = (value=1) => {
+        return new Network(this.networkIp.preIp((this.ipCount+1)*value), this.subnetMask);
     }
 
     /**

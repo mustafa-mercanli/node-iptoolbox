@@ -3,8 +3,8 @@ const {IP, Network} = require('./index');
 const nw = new Network("192.168.10.10","255.255.255.0");
 const nwCidr = Network.fromCidr("192.168.1.10/24"); // Returns Network. Network instance by initializing from CIDR format.
 console.log(nw.includes(new IP("192.168.10.50"))); // Returns Bool. Does the network contain this ip?
-console.log(nw.nextNetworkIp()); // Returns IP. Gives next network ip. For ex; 192.168.10.1 -> 192.168.11.1
-console.log(nw.preNetworkIp()); // Returns IP. Gives previous network ip. For ex; 192.168.10.1 -> 192.168.9.1
+console.log(nw.nextNetwork()); // Returns Network. Gives next network. For ex; 192.168.10.1 -> 192.168.11.1
+console.log(nw.preNetwork()); // Returns Network. Gives previous network. For ex; 192.168.10.1 -> 192.168.9.1
 console.log(nw.ipList) // A list containing all of IPs in this network.
 console.log(nw.cidr) // CIDR format of this network
 console.log(nw.json) // JSON formatted network object
